@@ -19,8 +19,13 @@ if(snapshot.key!=(firebase.auth().currentUser.uid))
    //
    // });
 }
-
 });
+firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
+
+  var changedPost = snapshot.val();
+  console.log(changedPost.Messages.chatMessage);
+});
+
 
 //START - To Keep the Scroll Pinned Down //
 var messageBody = document.querySelector('.chatCovoBox');
