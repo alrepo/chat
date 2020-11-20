@@ -1,0 +1,165 @@
+/* COMMON STYLES */
+h1,#chatButton
+{
+  font-family: 'Lalezar', cursive;
+  color: black;
+}
+input
+{
+  border-radius: 10px;
+}
+.chatBox
+{
+  position: relative;
+  height: 600px;
+  max-width: 450px;
+  background-color: #f8f9fa;
+  padding-left: 0;
+  padding-right: 0;
+}
+.inputForm
+{
+  position: absolute;
+  bottom: 0;
+  right: 70px;
+  width: 80%;
+}
+.chatCovoBox
+{
+    overflow: auto;
+    height: 100vh;
+    max-height: 90%;
+    max-width: 100%;
+    margin-bottom: 50px;
+    background-color: #bedbbb;
+    scroll-behavior: auto;
+}
+.myChatText
+{
+  position: relative;
+  display: inline-block;
+  border: solid 1px;
+  border-radius: 5px;
+  max-width: 200px;
+}
+.othersChatText
+{
+  position: relative;
+  display: inline-block;
+  border: solid 1px;
+  border-radius: 5px;
+  max-width: 200px;
+}
+.myName
+{
+  position: absolute;
+  top: 1px;
+  font-weight: 600;
+}
+.myText
+{
+  text-align: right;
+  max-height: 450px;
+  word-break: break-all;
+}
+.senderName
+{
+  position: absolute;
+  top: 1px;
+  font-weight: 600;
+
+}
+.senderText
+{
+  text-align: right;
+  max-height: 450px;
+  word-break: break-all;
+}
+#chatSendButton
+{
+  position: absolute;
+  bottom: 17px;
+  right: 15px;
+  background-color: #e8e8e8;
+  border: solid 1px;
+}
+
+#chatInputMessage
+{
+  display: inline;
+  width: 80%;
+  height: 40px;
+  margin-top: auto;
+  align: center;
+}
+input:focus
+{
+  outline: none;
+}
+
+/* MOBILE STYLES */
+@media screen and (max-width: 769px)
+{
+  .signUP
+  {
+    display: block;
+    height: 350px;
+    width: 300px;
+    background-color: #9ad3bc;
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .signIN
+  {
+    display: block;
+    height: 350px;
+    width: 300px;
+    background-color: #f3eac2;
+    margin-top: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+/* DESKTOP STYLES */
+@media screen and (min-width: 769.1px)
+{
+  .topContainer
+  {
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .signUP
+  {
+    display: inline-flex;
+    height: 350px;
+    width: 300px;
+    background-color: #9ad3bc;
+    margin-top: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .signIN
+  {
+    display: inline-flex;
+    height: 350px;
+    width: 300px;
+    background-color: #f3eac2;
+    margin-top: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
