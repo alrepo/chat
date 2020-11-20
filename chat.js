@@ -1,5 +1,48 @@
 $('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
 
+firebase.database().ref().child("Chat").on("child_added", function (snapshot) {
+if(snapshot.key!=(firebase.auth().currentUser.uid))
+{
+
+ var snapData =snapshot.val();
+ var otherMessages = snapData.Messages.chatMessage;
+
+ var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
+ innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">زائر</span><br><span class=\"myText d-flex self-align-end\">"+otherMessages+"</span></div></div>";
+   document.querySelector(".chatCovoBox").innerHTML = innerHtml;
+
+   console.log(snapData.Messages.chatMessage);
+
+   // firebase.database().ref().child("Chat").on("value", function (snapshot2){
+   //   var newMessage = snapshot2.val();
+   //   console.log(newMessage.);
+   //
+   // });
+}
+});
+firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
+
+  var changedPost = snapshot.val();
+
+  if(snapshot.key==(firebase.auth().currentUser.uid))
+  {
+    var myMessages = changedPost.Messages.chatMessage;
+    console.log(snapshot.key+" : "+myMessages);
+  }
+  else
+  {
+    var othersMessages = changedPost.Messages.chatMessage;
+    console.log(snapshot.key+" : "+othersMessages);
+  }
+
+});
+
+
+//START - To Keep the Scroll Pinned Down //
+var messageBody = document.querySelector('.chatCovoBox');
+messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+//END - To Keep the Scroll Pinned Down //
+
 document.querySelector("#chatSendButton").addEventListener("click", function()
 {
   const chatMessage = document.querySelector("#chatInputMessage").value;
@@ -10,15 +53,6 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
   // var otherID = firebase.auth().
   var userRef = chatRef.child(userID);
   var myMessages = userRef.child("Messages");
-
-          //   // save in database
-          // firebase.myMessages.push().set({
-          //     "sender": userID,
-          //     "message": chatMessage
-          // });
-
-          // prevent form from submitting
-//
 
   if(chatMessage!="")
   {
@@ -42,17 +76,13 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
       myMessages.on("child_added", function (snapshot) {
 
       var snapData =snapshot.val();
+      // console.log(snapData);
    });
+   //START - To Keep the Scroll Pinned Down //
+   var messageBody = document.querySelector('.chatCovoBox');
+   messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+   //END - To Keep the Scroll Pinned Down //
   }
-  chatRef.on("child_added", function (snapshot) {
-  var snapData =snapshot.val();
-  console.log(snapData.val().chatMessage);
-});
-}
 
-      //START - To Keep the Scroll Pinned Down //
-  var messageBody = document.querySelector('.chatCovoBox');
-  messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
-      //END - To Keep the Scroll Pinned Down //
 
 });
