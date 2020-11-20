@@ -11,13 +11,13 @@ if(snapshot.key!=(firebase.auth().currentUser.uid))
  innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">زائر</span><br><span class=\"myText d-flex self-align-end\">"+otherMessages+"</span></div></div>";
    document.querySelector(".chatCovoBox").innerHTML = innerHtml;
 
-   firebase.database().ref().child("Chat").on("value", function (snapshot2){
-     var newMessage = snapshot2.val();
-     console.log(newMessage.);
-
-   });
-
    console.log(snapData.Messages.chatMessage);
+
+   // firebase.database().ref().child("Chat").on("value", function (snapshot2){
+   //   var newMessage = snapshot2.val();
+   //   console.log(newMessage.);
+   //
+   // });
 }
 
 });
