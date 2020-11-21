@@ -43,6 +43,10 @@ firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
 
 });
 
+document.querySelector("#chatInputMessage").addEventListener("focus", function(){
+  $('.chatBox').scrollTop($('.chatBox')[0].scrollHeight);
+});
+
 document.querySelector("#chatSendButton").addEventListener("click", function()
 {
   const chatMessage = document.querySelector("#chatInputMessage").value;
@@ -126,6 +130,7 @@ document.querySelector("#chatInputMessage").addEventListener("keypress", functio
        var messageBody = document.querySelector('.chatCovoBox');
        messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
        //END - To Keep the Scroll Pinned Down //
+       $('.chatBox').scrollTop($('.chatBox')[0].scrollHeight);
       }
     }
 });
