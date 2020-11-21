@@ -3,17 +3,17 @@ $('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
 firebase.database().ref().child("Chat").on("child_added", function (snapshot) {
 if(snapshot.key!=(firebase.auth().currentUser.uid))
 {
-
- var snapData =snapshot.val();
- var otherMessages = snapData.Messages.chatMessage;
-
- var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
- innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"</span><br><span class=\"myText d-flex self-align-end\">"+otherMessages+"</span></div></div>";
-   document.querySelector(".chatCovoBox").innerHTML = innerHtml;
-
-   console.log(snapData.Messages.chatMessage);
-
-}
+// 
+//  var snapData =snapshot.val();
+//  var otherMessages = snapData.Messages.chatMessage;
+//
+//  var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
+//  innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"</span><br><span class=\"myText d-flex self-align-end\">"+otherMessages+"</span></div></div>";
+//    document.querySelector(".chatCovoBox").innerHTML = innerHtml;
+//
+//    console.log(snapData.Messages.chatMessage);
+//
+// }
 });
 firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
 
@@ -137,7 +137,7 @@ $(document).on("keypress", 'form', function (e) {
         return false;
     }
 });
-// To prevent the delay in database retrieval from disabling the scroll pinned down. So, the below only execute last 
+// To prevent the delay in database retrieval from disabling the scroll pinned down. So, the below only execute last
 window.onload = function() {
   //START - To Keep the Scroll Pinned Down //
   var messageBody = document.querySelector('.chatCovoBox');
