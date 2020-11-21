@@ -1,5 +1,19 @@
 $('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
 
+$(document).ready(function(){
+    resizeDiv();
+});
+
+window.onresize = function(event) {
+    resizeDiv();
+}
+
+function resizeDiv() {
+    vpw = $(window).width();
+    vph = $(window).height();
+    $(‘#somediv’).css({‘height’: vph + ‘px’});
+}
+
 // firebase.database().ref().child("Chat").on("child_added", function (snapshot) {
 // if(snapshot.key!=(firebase.auth().currentUser.uid))
 // {
@@ -61,6 +75,7 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
   if(chatMessage!="")
   {
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
+
     innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span></div></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
         var userData =
