@@ -29,7 +29,6 @@ firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
   }
   else
   {
-
     var othersMessages = changedPost.Messages.chatMessage;
 
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
