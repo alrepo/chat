@@ -95,7 +95,6 @@ input:focus
   body
   {
     height: 100vh;
-    background-color: grey;
   }
   .signUP
   {
@@ -126,7 +125,7 @@ input:focus
   .chatBox
   {
     position: relative;
-    height: 90%;
+    height: 100%;
     width: 100%;
     background-color: #f8f9fa;
     padding-left: 0;
