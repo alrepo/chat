@@ -8,15 +8,7 @@ input
 {
   border-radius: 10px;
 }
-.chatBox
-{
-  position: relative;
-  height: 600px;
-  max-width: 450px;
-  background-color: #f8f9fa;
-  padding-left: 0;
-  padding-right: 0;
-}
+
 .inputForm
 {
   position: absolute;
@@ -100,6 +92,11 @@ input:focus
 /* MOBILE STYLES */
 @media screen and (max-width: 769px)
 {
+  body
+  {
+    height: 100vh;
+    background-color: grey;
+  }
   .signUP
   {
     display: block;
@@ -125,6 +122,16 @@ input:focus
     border-radius: 10px;
     font-size: 20px;
     font-weight: 600;
+  }
+  .chatBox
+  {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding-left: 0;
+    padding-right: 0;
+    max-height: 100%;
   }
 }
 
@@ -161,5 +168,15 @@ input:focus
     border-radius: 10px;
     font-size: 20px;
     font-weight: 600;
+  }
+  .chatBox
+  {
+    position: relative;
+    height: 700px;
+    max-width: 1000px;
+    background-color: #f8f9fa;
+    padding-left: 0;
+    padding-right: 0;
+    max-height: 100%;
   }
 }
