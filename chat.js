@@ -1,6 +1,6 @@
 $('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
 
-firebase.database().ref().child("Chat").on("value", function (snapshot) {
+firebase.database().ref().child("Chat").on("child_added", function (snapshot) {
 if(snapshot.key!=(firebase.auth().currentUser.uid))
 {
 
@@ -8,7 +8,7 @@ if(snapshot.key!=(firebase.auth().currentUser.uid))
  var otherMessages = snapData.Messages.chatMessage;
 
  var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
- innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"ر</span><br><span class=\"myText d-flex self-align-end\">"+otherMessages+"</span></div></div>";
+ innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"</span><br><span class=\"myText d-flex self-align-end\">"+otherMessages+"</span></div></div>";
    document.querySelector(".chatCovoBox").innerHTML = innerHtml;
 
    console.log(snapData.Messages.chatMessage);
