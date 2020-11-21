@@ -1,20 +1,20 @@
 $('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
 
-// firebase.database().ref().child("Chat").on("child_added", function (snapshot) {
-// if(snapshot.key!=(firebase.auth().currentUser.uid))
-// {
-//
-//  var snapData =snapshot.val();
-//  var otherMessages = snapData.Messages.chatMessage;
-//
-//  var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-//  innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">زائر</span><br><span class=\"myText d-flex self-align-end\">"+otherMessages+"</span></div></div>";
-//    document.querySelector(".chatCovoBox").innerHTML = innerHtml;
-//
-//    console.log(snapData.Messages.chatMessage);
-//
-// }
-// });
+firebase.database().ref().child("Chat").on("value", function (snapshot) {
+if(snapshot.key!=(firebase.auth().currentUser.uid))
+{
+
+ var snapData =snapshot.val();
+ var otherMessages = snapData.Messages.chatMessage;
+
+ var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
+ innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"ر</span><br><span class=\"myText d-flex self-align-end\">"+otherMessages+"</span></div></div>";
+   document.querySelector(".chatCovoBox").innerHTML = innerHtml;
+
+   console.log(snapData.Messages.chatMessage);
+
+}
+});
 firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
 
   var changedPost = snapshot.val();
@@ -32,7 +32,7 @@ firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
     var othersMessages = changedPost.Messages.chatMessage;
 
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container othersChatText text-right\"><span class=\"myName text-center\">زائر</span><br><span class=\"myText d-flex self-align-end\">"+othersMessages+"</span></div></div>";
+    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container othersChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"</span><br><span class=\"myText d-flex self-align-end\">"+othersMessages+"</span></div></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
     console.log(snapshot.key+" : "+othersMessages);
     //START - To Keep the Scroll Pinned Down //
