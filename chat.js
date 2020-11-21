@@ -78,8 +78,6 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
   if(chatMessage!="")
   {
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-    var audio = document.getElementById("audio");
-    audio.play();
 
     innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span></div></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
@@ -125,9 +123,6 @@ document.querySelector("#chatInputMessage").addEventListener("keypress", functio
 
       if(chatMessage!="")
       {
-        var audio = document.getElementById("audio");
-        audio.play();
-
         var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
         innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span></div></div>";
           document.querySelector(".chatCovoBox").innerHTML = innerHtml;
