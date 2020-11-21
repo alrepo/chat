@@ -44,10 +44,8 @@ firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
   else
   {
     var othersMessages = changedPost.Messages.chatMessage;
-
     var audio = document.getElementById("audio");
     audio.play();
-
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
     innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container othersChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"</span><br><span class=\"myText d-flex self-align-end\">"+othersMessages+"</span></div></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
@@ -80,7 +78,8 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
   if(chatMessage!="")
   {
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-
+    var audio = document.getElementById("audio");
+    audio.play();
 
     innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span></div></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
@@ -126,6 +125,9 @@ document.querySelector("#chatInputMessage").addEventListener("keypress", functio
 
       if(chatMessage!="")
       {
+        var audio = document.getElementById("audio");
+        audio.play();
+
         var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
         innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span></div></div>";
           document.querySelector(".chatCovoBox").innerHTML = innerHtml;
