@@ -103,7 +103,7 @@ input:focus
   .signUP
   {
     display: block;
-    height: 350px;
+    height: 400px;
     width: 300px;
     background-color: #9ad3bc;
     margin-top: 20px;
@@ -117,7 +117,7 @@ input:focus
   .signIN
   {
     display: block;
-    height: 350px;
+    height: 400px;
     width: 300px;
     background-color: #f3eac2;
     margin-top: 10px;
@@ -151,7 +151,7 @@ input:focus
   .signUP
   {
     display: inline-flex;
-    height: 350px;
+    height: 400px;
     width: 300px;
     background-color: #9ad3bc;
     margin-top: 10px;
@@ -163,7 +163,7 @@ input:focus
   .signIN
   {
     display: inline-flex;
-    height: 350px;
+    height: 400px;
     width: 300px;
     background-color: #f3eac2;
     margin-top: 10px;
