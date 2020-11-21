@@ -11,7 +11,7 @@ window.onresize = function(event) {
 function resizeDiv() {
     vpw = $(window).width();
     vph = $(window).height();
-    $(‘#somediv’).css({‘height’: vph + ‘px’});
+    $("#chatBox").css({"height": vph + "px"});
 }
 
 // firebase.database().ref().child("Chat").on("child_added", function (snapshot) {
