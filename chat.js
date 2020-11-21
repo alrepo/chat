@@ -86,6 +86,58 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
 
 });
 
+document.querySelector("#chatInputMessage").addEventListener("keypress", function (e) {
+    if (e.key === "Enter")
+    {
+      const chatMessage = document.querySelector("#chatInputMessage").value;
+      document.querySelector("#chatInputMessage").value ="";
+
+      var chatRef = firebase.database().ref().child("Chat");
+      var userID = firebase.auth().currentUser.uid;
+      // var otherID = firebase.auth().
+      var userRef = chatRef.child(userID);
+      var myMessages = userRef.child("Messages");
+
+      if(chatMessage!="")
+      {
+        var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
+        innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span></div></div>";
+          document.querySelector(".chatCovoBox").innerHTML = innerHtml;
+            var userData =
+            {
+              "chatMessage": chatMessage,
+            };
+            myMessages.set(userData, function(error){
+             if(error)
+              {
+               alert("Error!");
+              }
+             else
+              {
+              }
+          });
+          // listen for incoming messages
+          myMessages.on("child_added", function (snapshot) {
+
+          var snapData =snapshot.val();
+          // console.log(snapData);
+       });
+       //START - To Keep the Scroll Pinned Down //
+       var messageBody = document.querySelector('.chatCovoBox');
+       messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+       //END - To Keep the Scroll Pinned Down //
+      }
+    }
+});
+ // Disable form submit on "Enter" key pressing
+$(document).on("keypress", 'form', function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+        e.preventDefault();
+        return false;
+    }
+});
+// To prevent the delay in database retrieval from disabling the scroll pinned down. So, the below only execute last 
 window.onload = function() {
   //START - To Keep the Scroll Pinned Down //
   var messageBody = document.querySelector('.chatCovoBox');
