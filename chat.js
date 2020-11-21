@@ -143,4 +143,5 @@ window.onload = function() {
   var messageBody = document.querySelector('.chatCovoBox');
   messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
   //END - To Keep the Scroll Pinned Down //
+  $('.chatBox').scrollTop($('.chatBox')[0].scrollHeight);
 };
