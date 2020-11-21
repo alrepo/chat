@@ -1,9 +1,9 @@
 $('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
 
-firebase.database().ref().child("Chat").on("child_added", function (snapshot) {
-if(snapshot.key!=(firebase.auth().currentUser.uid))
-{
-// 
+// firebase.database().ref().child("Chat").on("child_added", function (snapshot) {
+// if(snapshot.key!=(firebase.auth().currentUser.uid))
+// {
+//
 //  var snapData =snapshot.val();
 //  var otherMessages = snapData.Messages.chatMessage;
 //
@@ -14,7 +14,7 @@ if(snapshot.key!=(firebase.auth().currentUser.uid))
 //    console.log(snapData.Messages.chatMessage);
 //
 // }
-});
+// });
 firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
 
   var changedPost = snapshot.val();
