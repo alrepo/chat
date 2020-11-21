@@ -37,8 +37,8 @@
 
   <body>
     <div class="container topContainer">
-      <div class="signIN container text-right">
-      <form>
+      <div class="signIN container text-right" style="position: relative">
+      <form style="position: relative">
         <div class="form-group">
           <label for="signINemail">البريد الإلكتروني: </label><br>
           <input id="signINemail" type="email" name="signINemail">
@@ -51,11 +51,11 @@
           <label for="signINUsername">اسم مستخدم للدردشة: </label><br>
           <input id="signINUsername" type="text" name="signINUsername">
         </div>
-        <button type="button" id="signINButton" class="btn btn-warning d-flex mt-auto" style="width: 100%; font-weight: 600; font-size: 20px;" name="button">دخول</button>
       </form>
-      </div>
-      <div class="signUP container text-right">
-      <form>
+    <button type="button" id="signINButton" class="btn btn-warning" style="position: absolute; right: auto; left: 15px; bottom: 5px; width: 90%; font-size: 20px;" name="button">دخول</button>
+  </div>
+      <div class="signUP container" style="position: relative">
+      <form class=" text-right">
         <div class="form-group">
           <label for="email">البريد الإلكتروني: </label><br>
           <input id="email" type="email" name="email">
@@ -68,8 +68,8 @@
           <label for="signupUsername">اسم مستخدم للدردشة: </label><br>
           <input id="signupUsername" type="text" name="signupUsername">
         </div>
-        <button type="button" id="signupButton" class="btn btn-warning d-flex mt-auto" style="width: 100%; font-weight: 600; font-size: 20px;" name="button">حساب جديد</button>
       </form>
+      <button type="button" id="signupButton" class="btn btn-warning" style="position: absolute; right: auto; left: 15px; bottom: 5px; width: 90%; font-weight: 600; font-size: 20px;" name="button">حساب جديد</button>
       </div>
     </div>
       <script src="signup.js" type="text/javascript"></script>
