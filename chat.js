@@ -1,5 +1,7 @@
 $('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
 
+document.querySelector(".chatCovoBox").style.backgroundImage = "url('whatsapp_background_image.jpg')";
+
 $(document).ready(function(){
     resizeDiv();
 });
@@ -126,9 +128,15 @@ document.querySelector("#chatInputMessage").addEventListener("keypress", functio
         var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
         innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span></div></div>";
           document.querySelector(".chatCovoBox").innerHTML = innerHtml;
-            var userData =
+
+          var completeDate = new Date();
+
+          console.log(completeDate.toDateString());
+
+          var userData =
             {
               "chatMessage": chatMessage,
+              "date": ""+completeDate
             };
             myMessages.set(userData, function(error){
              if(error)
