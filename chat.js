@@ -84,7 +84,7 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
     const individualChatDateAndTime = (new Date().toDateString())+", "+(new Date().toLocaleTimeString());
 
-    innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"d-flex individualChatDateAndTime mt-0 self-align-end\">"+individualChatDateAndTime+"</span></div></div>";
+    innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-center\"><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"individualChatDateAndTime mt-0\">"+individualChatDateAndTime+"</span></div></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
 
       var completeDate = new Date();
@@ -140,7 +140,7 @@ document.querySelector("#chatInputMessage").addEventListener("keypress", functio
         const individualChatDateAndTime = (new Date().toDateString())+", "+(new Date().toLocaleTimeString());
 
         var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-        innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"d-flex individualChatDateAndTime mt-0 self-align-end\">"+individualChatDateAndTime+"</span></div></div>";
+        innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-center\"><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"individualChatDateAndTime mt-0\">"+individualChatDateAndTime+"</span></div></div>";
           document.querySelector(".chatCovoBox").innerHTML = innerHtml;
 
           var completeDate = new Date();
