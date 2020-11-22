@@ -46,7 +46,7 @@ firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
   else
   {
     var othersMessages = changedPost.Messages.chatMessage;
-    var individualChatDateAndTime = changedPost.Messages.shortDate;
+    var individualChatDateAndTime = changedPost.Messages.individualChatDateAndTime;
 
     var audio = document.getElementById("audio");
     audio.play();
