@@ -46,14 +46,13 @@ firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
   else
   {
     var othersMessages = changedPost.Messages.chatMessage;
-    var othersMessagesDateAndTime = changedPost.Messages.shortDate;
+    var individualChatDateAndTime = changedPost.Messages.shortDate;
 
     var audio = document.getElementById("audio");
     audio.play();
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container othersChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"</span><br><span class=\"myText d-flex self-align-end\">"+othersMessages+"</span></div><p>Time</p></div>";
+    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container othersChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"</span><br><span class=\"myText d-flex self-align-end\">"+othersMessages+"</span><span class=\"d-flex individualChatDateAndTime mt-0 self-align-end\">"+individualChatDateAndTime+"</span></div></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
-    console.log(snapshot.key+" : "+othersMessages);
     //START - To Keep the Scroll Pinned Down //
     var messageBody = document.querySelector('.chatCovoBox');
     messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
@@ -141,7 +140,7 @@ document.querySelector("#chatInputMessage").addEventListener("keypress", functio
         const individualChatDateAndTime = (new Date().toDateString())+", "+(new Date().toLocaleTimeString());
 
         var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-        innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"d-flex individualChatTime mt-0 self-align-end\">"+individualChatDateAndTime+"</span></div></div>";
+        innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"d-flex individualChatDateAndTime mt-0 self-align-end\">"+individualChatDateAndTime+"</span></div></div>";
           document.querySelector(".chatCovoBox").innerHTML = innerHtml;
 
           var completeDate = new Date();
