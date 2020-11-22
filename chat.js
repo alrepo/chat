@@ -1,4 +1,4 @@
-$('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
+individualChatDateAndTime$('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
 
 document.querySelector(".chatCovoBox").style.backgroundImage = "url('whatsapp_background_image.jpg')";
 
@@ -85,7 +85,7 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
     const individualChatDateAndTime = (new Date().toDateString())+", "+(new Date().toLocaleTimeString());
 
-    innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"d-flex individualChatTime mt-0 self-align-end\">"+individualChatDateAndTime+"</span></div></div>";
+    innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"d-flex individualChatDateAndTime mt-0 self-align-end\">"+individualChatDateAndTime+"</span></div></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
 
       var completeDate = new Date();
