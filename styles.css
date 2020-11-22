@@ -6,7 +6,8 @@ h1,#chatButton
 }
 input
 {
-  border-radius: 10px;
+  border-radius: 50px;
+  border: none;
 }
 
 .inputForm
@@ -15,6 +16,7 @@ input
   bottom: 0;
   right: 70px;
   width: 80%;
+  background-color: #ededed;
 }
 .chatCovoBox
 {
@@ -23,7 +25,7 @@ input
     max-height: 90%;
     max-width: 100%;
     margin-bottom: 50px;
-    background-color: #bedbbb;
+    background-color: #ededed;
     scroll-behavior: auto;
 }
 .myChatText
@@ -80,6 +82,8 @@ input
   right: 15px;
   background-color: #e8e8e8;
   border: solid 1px;
+  border-radius: 50%;
+  visibility: hidden;
 }
 
 #chatInputMessage
@@ -133,7 +137,7 @@ input:focus
     position: relative;
     height: 100%;
     width: 100%;
-    background-color: #f8f9fa;
+    background-color: #ededed;
     padding-left: 0;
     padding-right: 0;
     max-height: 100%;
@@ -179,7 +183,7 @@ input:focus
     position: relative;
     height: 700px;
     max-width: 1000px;
-    background-color: #f8f9fa;
+    background-color: #ededed;
     padding-left: 0;
     padding-right: 0;
     max-height: 100%;
