@@ -71,6 +71,7 @@ document.querySelector("#chatInputMessage").addEventListener("focus", function()
 document.querySelector("#chatSendButton").addEventListener("click", function()
 {
   const chatMessage = document.querySelector("#chatInputMessage").value;
+  const individualChatDateAndTime= (new Date().toDateString())+", "+(new Date().toLocaleTimeString());
   document.querySelector("#chatInputMessage").value ="";
 
   var chatRef = firebase.database().ref().child("Chat");
@@ -82,13 +83,21 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
   if(chatMessage!="")
   {
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
+    const individualChatDateAndTime = (new Date().toDateString())+", "+(new Date().toLocaleTimeString());
 
-    innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span></div></div>";
+    innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"d-flex individualChatTime mt-0 self-align-end\">"+individualChatDateAndTime+"</span></div></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
-        var userData =
+
+      var completeDate = new Date();
+      console.log(completeDate);
+
+      var userData =
         {
           "chatMessage": chatMessage,
+          "completeTimeAndDate": ""+completeDate,
+          "individualChatDateAndTime": individualChatDateAndTime
         };
+
         myMessages.set(userData, function(error){
          if(error)
           {
@@ -117,6 +126,8 @@ document.querySelector("#chatInputMessage").addEventListener("keypress", functio
     {
 
       const chatMessage = document.querySelector("#chatInputMessage").value;
+      const individualChatDateAndTime = (new Date().toDateString())+", "+(new Date().toLocaleTimeString());
+
       document.querySelector("#chatInputMessage").value ="";
 
       var chatRef = firebase.database().ref().child("Chat");
@@ -127,19 +138,20 @@ document.querySelector("#chatInputMessage").addEventListener("keypress", functio
 
       if(chatMessage!="")
       {
+        const individualChatDateAndTime = (new Date().toDateString())+", "+(new Date().toLocaleTimeString());
+
         var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-        innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span></div></div>";
+        innerHtml += "<div class=\"chatRow mb-2 text-right\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">أنا</span><br><span class=\"myText d-flex self-align-end\">"+chatMessage+"</span><span class=\"d-flex individualChatTime mt-0 self-align-end\">"+individualChatDateAndTime+"</span></div></div>";
           document.querySelector(".chatCovoBox").innerHTML = innerHtml;
 
           var completeDate = new Date();
-
-          console.log(completeDate.toDateString());
+          console.log(completeDate);
 
           var userData =
             {
               "chatMessage": chatMessage,
-              "completeDate": ""+completeDate,
-              "shortDate": completeDate.toDateString()
+              "completeTimeAndDate": ""+completeDate,
+              "individualChatDateAndTime": individualChatDateAndTime
             };
             myMessages.set(userData, function(error){
              if(error)
