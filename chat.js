@@ -10,13 +10,10 @@ window.onresize = function(event) {
     resizeDiv();
 }
 
-<<<<<<< HEAD
-=======
 function resizeDiv() {
     vpw = $(window).width();
     vph = $(window).height();
     $("#chatBox").css({"height": vph + "px"});
->>>>>>> b78bb51906cc40c1015dfdfa101af0f4e01ca453
 }
 
 // firebase.database().ref().child("Chat").on("child_added", function (snapshot) {
@@ -40,33 +37,21 @@ firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
 
   if(snapshot.key==(firebase.auth().currentUser.uid))
   {
-<<<<<<< HEAD
-    var myMessages = changedPost.Messages.chatMessage;
-    var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">زائر</span><br><span class=\"myText d-flex self-align-end\">"+myMessages+"</span></div></div>";
-      document.querySelector(".chatCovoBox").innerHTML = innerHtml;
-    console.log(snapshot.key+" : "+myMessages);
-=======
     // var myMessages = changedPost.Messages.chatMessage;
     // var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
     // innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">زائر</span><br><span class=\"myText d-flex self-align-end\">"+myMessages+"</span></div></div>";
     //   document.querySelector(".chatCovoBox").innerHTML = innerHtml;
     // console.log(snapshot.key+" : "+myMessages);
->>>>>>> b78bb51906cc40c1015dfdfa101af0f4e01ca453
   }
   else
   {
     var othersMessages = changedPost.Messages.chatMessage;
-<<<<<<< HEAD
+    var othersMessagesDateAndTime = changedPost.Messages.shortDate;
 
-    var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container othersChatText text-left\"><span class=\"myName text-center\">زائر</span><br><span class=\"myText d-flex self-align-end\">"+othersMessages+"</span></div></div>";
-=======
     var audio = document.getElementById("audio");
     audio.play();
     var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
-    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container othersChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"</span><br><span class=\"myText d-flex self-align-end\">"+othersMessages+"</span></div></div>";
->>>>>>> b78bb51906cc40c1015dfdfa101af0f4e01ca453
+    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container othersChatText text-right\"><span class=\"myName text-center\">"+(snapshot.key+"").slice(0, 5)+"</span><br><span class=\"myText d-flex self-align-end\">"+othersMessages+"</span></div><p>Time</p></div>";
       document.querySelector(".chatCovoBox").innerHTML = innerHtml;
     console.log(snapshot.key+" : "+othersMessages);
     //START - To Keep the Scroll Pinned Down //
@@ -79,19 +64,9 @@ firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
 
 });
 
-<<<<<<< HEAD
-
-window.onload = function() {
-  //START - To Keep the Scroll Pinned Down //
-  var messageBody = document.querySelector('.chatCovoBox');
-  messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
-  //END - To Keep the Scroll Pinned Down //
-};
-=======
 document.querySelector("#chatInputMessage").addEventListener("focus", function(){
   $('.chatBox').scrollTop($('.chatBox')[0].scrollHeight);
 });
->>>>>>> b78bb51906cc40c1015dfdfa101af0f4e01ca453
 
 document.querySelector("#chatSendButton").addEventListener("click", function()
 {
@@ -135,8 +110,6 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
    //END - To Keep the Scroll Pinned Down //
   }
 
-<<<<<<< HEAD
-=======
 });
 
 document.querySelector("#chatInputMessage").addEventListener("keypress", function (e) {
@@ -165,7 +138,8 @@ document.querySelector("#chatInputMessage").addEventListener("keypress", functio
           var userData =
             {
               "chatMessage": chatMessage,
-              "date": ""+completeDate
+              "completeDate": ""+completeDate,
+              "shortDate": completeDate.toDateString()
             };
             myMessages.set(userData, function(error){
              if(error)
@@ -197,7 +171,6 @@ $(document).on("keypress", 'form', function (e) {
         e.preventDefault();
         return false;
     }
->>>>>>> b78bb51906cc40c1015dfdfa101af0f4e01ca453
 });
 // To prevent the delay in database retrieval from disabling the scroll pinned down. So, the below only execute last
 window.onload = function() {
@@ -207,4 +180,3 @@ window.onload = function() {
   //END - To Keep the Scroll Pinned Down //
   $('.chatBox').scrollTop($('.chatBox')[0].scrollHeight);
 };
-/*/*
