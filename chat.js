@@ -1,4 +1,4 @@
-individualChatDateAndTime$('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
+$('.chatCovoBox').scrollTop($('.chatCovoBox')[0].scrollHeight);
 
 document.querySelector(".chatCovoBox").style.backgroundImage = "url('whatsapp_background_image.jpg')";
 
