@@ -177,3 +177,4 @@ window.onload = function() {
   //END - To Keep the Scroll Pinned Down //
   $('.chatBox').scrollTop($('.chatBox')[0].scrollHeight);
 };
+/*/*
