@@ -13,11 +13,6 @@ if(snapshot.key!=(firebase.auth().currentUser.uid))
 
    console.log(snapData.Messages.chatMessage);
 
-   // firebase.database().ref().child("Chat").on("value", function (snapshot2){
-   //   var newMessage = snapshot2.val();
-   //   console.log(newMessage.);
-   //
-   // });
 }
 });
 firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
@@ -27,21 +22,30 @@ firebase.database().ref().child("Chat").on("child_changed", function(snapshot) {
   if(snapshot.key==(firebase.auth().currentUser.uid))
   {
     var myMessages = changedPost.Messages.chatMessage;
+    var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
+    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container myChatText text-right\"><span class=\"myName text-center\">زائر</span><br><span class=\"myText d-flex self-align-end\">"+myMessages+"</span></div></div>";
+      document.querySelector(".chatCovoBox").innerHTML = innerHtml;
     console.log(snapshot.key+" : "+myMessages);
   }
   else
   {
     var othersMessages = changedPost.Messages.chatMessage;
+
+    var innerHtml = document.querySelector(".chatCovoBox").innerHTML;
+    innerHtml += "<div class=\"chatRow mb-2 text-left\"><div class=\"container othersChatText text-left\"><span class=\"myName text-center\">زائر</span><br><span class=\"myText d-flex self-align-end\">"+othersMessages+"</span></div></div>";
+      document.querySelector(".chatCovoBox").innerHTML = innerHtml;
     console.log(snapshot.key+" : "+othersMessages);
   }
 
 });
 
 
-//START - To Keep the Scroll Pinned Down //
-var messageBody = document.querySelector('.chatCovoBox');
-messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
-//END - To Keep the Scroll Pinned Down //
+window.onload = function() {
+  //START - To Keep the Scroll Pinned Down //
+  var messageBody = document.querySelector('.chatCovoBox');
+  messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+  //END - To Keep the Scroll Pinned Down //
+};
 
 document.querySelector("#chatSendButton").addEventListener("click", function()
 {
@@ -83,6 +87,5 @@ document.querySelector("#chatSendButton").addEventListener("click", function()
    messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
    //END - To Keep the Scroll Pinned Down //
   }
-
 
 });
