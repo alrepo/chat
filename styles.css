@@ -71,9 +71,9 @@ input
   max-height: 450px;
   word-break: break-all;
 }
-.chatRow
+.individualChatDateAndTime
 {
-
+  font-size: 12px;
 }
 #chatSendButton
 {
@@ -83,7 +83,7 @@ input
   background-color: #e8e8e8;
   border: solid 1px;
   border-radius: 50%;
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 #chatInputMessage
